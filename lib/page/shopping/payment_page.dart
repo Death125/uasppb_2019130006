@@ -153,71 +153,71 @@ class _PaymentPageState extends State<PaymentPage> {
                 'Are you sure you want to buy this item ?',
                 Icons.credit_card);
             if (action == DialogsAction.yes) {
-              //Update Stock of product
-              // for (var i = 0; i < controller.products.length; i++) {
-              //   p = controller.products.keys.toList()[i];
-              //   qty = controller.products.values.toList()[i];
+              // Update Stock of product
+              for (var i = 0; i < controller.products.length; i++) {
+                p = controller.products.keys.toList()[i];
+                qty = controller.products.values.toList()[i];
 
-              //   productId = p.id;
-              //   productList.add(p.name);
-              //   productQuantity.add(qty);
+                productId = p.id;
+                productList.add(p.name);
+                productQuantity.add(qty);
 
-              //   _product.doc(productId).update({
-              //     'stock': FieldValue.increment(-(qty))
-              //   }).catchError((onError) =>
-              //       print("Failed to update stock of products : $onError"));
-              // }
+                _product.doc(productId).update({
+                  'stock': FieldValue.increment(-(qty))
+                }).catchError((onError) =>
+                    print("Failed to update stock of products : $onError"));
+              }
 
               Get.delete<CartController>();
               HomePage.index = 0;
               HomePage.newScreen = true;
               Get.to(() => const HomePage());
 
-              // //Write history of purchased item
-              // final databaseReference = FirebaseFirestore.instance;
+              //Write history of purchased item
+              final databaseReference = FirebaseFirestore.instance;
 
-              // databaseReference
-              //     .collection('purchaseHistory')
-              //     .doc(user.email)
-              //     .set({"email": user.email}).catchError((onError) =>
-              //         print("Failed to add new collection : $onError"));
+              databaseReference
+                  .collection('purchaseHistory')
+                  .doc(user.email)
+                  .set({"email": user.email}).catchError((onError) =>
+                      print("Failed to add new collection : $onError"));
 
-              // databaseReference
-              //     .collection('purchaseHistory')
-              //     .doc(user.email)
-              //     .collection('purchasedItem')
-              //     .doc(uniqueId)
-              //     .set({
-              //   "purchaseItemId": uniqueId,
-              //   "purchaseItemDate": formattedDate,
-              //   "purchaseItem": productList,
-              //   "numberOfItemPurchased": productQuantity,
-              //   "paymentMethod": paymentMethod,
-              // }).catchError((onError) =>
-              //         print("Failed to add new sub-collection : $onError"));
+              databaseReference
+                  .collection('purchaseHistory')
+                  .doc(user.email)
+                  .collection('purchasedItem')
+                  .doc(uniqueId)
+                  .set({
+                "purchaseItemId": uniqueId,
+                "purchaseItemDate": formattedDate,
+                "purchaseItem": productList,
+                "numberOfItemPurchased": productQuantity,
+                "paymentMethod": paymentMethod,
+              }).catchError((onError) =>
+                      print("Failed to add new sub-collection : $onError"));
 
-              // //Write history of sold item
-              // final databaseReference1 = FirebaseFirestore.instance;
+              //Write history of sold item
+              final databaseReference1 = FirebaseFirestore.instance;
 
-              // databaseReference1
-              //     .collection('salesHistory')
-              //     .doc(user.email)
-              //     .set({"email": user.email}).catchError((onError) =>
-              //         print("Failed to add new collection : $onError"));
+              databaseReference1
+                  .collection('salesHistory')
+                  .doc(user.email)
+                  .set({"email": user.email}).catchError((onError) =>
+                      print("Failed to add new collection : $onError"));
 
-              // databaseReference1
-              //     .collection('salesHistory')
-              //     .doc(user.email)
-              //     .collection('soldItem')
-              //     .doc(uniqueId)
-              //     .set({
-              //   "soldItemId": uniqueId,
-              //   "soldItemDate": formattedDate,
-              //   "soldItem": productList,
-              //   "numberOfItemSold": productQuantity,
-              //   "paymentMethod": paymentMethod,
-              // }).catchError((onError) =>
-              //         print("Failed to add new sub-collection : $onError"));
+              databaseReference1
+                  .collection('salesHistory')
+                  .doc(user.email)
+                  .collection('soldItem')
+                  .doc(uniqueId)
+                  .set({
+                "soldItemId": uniqueId,
+                "soldItemDate": formattedDate,
+                "soldItem": productList,
+                "numberOfItemSold": productQuantity,
+                "paymentMethod": paymentMethod,
+              }).catchError((onError) =>
+                      print("Failed to add new sub-collection : $onError"));
 
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 duration: const Duration(milliseconds: 1000),
