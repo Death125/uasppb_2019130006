@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "886764651952",
+    "firebase_url": "https://uas-ppb-2019130006-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "uas-ppb-2019130006",
+    "storage_bucket": "uas-ppb-2019130006.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886764651952:android:85f07042ce5e4282bc0275",
+        "android_client_info": {
+          "package_name": "com.example.uasppb_2019130006"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886764651952-ht8q6dj4kmm8k73jhat8q0rdq0tud9lq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY9i13u7-r4LQmYYBBOuVJGKiGzNF5ZNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886764651952-ht8q6dj4kmm8k73jhat8q0rdq0tud9lq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "886764651952-vvpliftds9p7866899r0u5sribs8beff.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.uasppb2019130006"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
