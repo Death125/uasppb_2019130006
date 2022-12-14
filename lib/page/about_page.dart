@@ -65,7 +65,7 @@ class _AboutPageState extends State<AboutPage> {
               child: Padding(
                 padding: EdgeInsets.all(20),
                 child: Text(
-                  "\t Bright's Store is a store that sells game tapes for PC, we provide various types of PC games and we sell them at relatively cheap prices.",
+                  "\t Bright's Store is a store that sells game cd for PC, we provide various types of PC games and we sell them at relatively cheap prices.",
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,

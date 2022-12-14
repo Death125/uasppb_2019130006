@@ -66,22 +66,20 @@ class _ProductCardOutOfStockState extends State<ProductCardOutOfStock> {
             ),
           ),
           separator(20),
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Genre : ${productController.products[widget.index].genre}",
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontFamily: "RobotoMono",
-                ),
-                softWrap: true,
-                maxLines: 5,
-                overflow: TextOverflow.ellipsis,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Genre : ${productController.products[widget.index].genre}",
+              style: const TextStyle(
+                fontSize: 16,
+                fontFamily: "RobotoMono",
               ),
+              softWrap: true,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          separator(13),
+          separator(10),
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
@@ -104,14 +102,15 @@ class _ProductCardOutOfStockState extends State<ProductCardOutOfStock> {
               "Description :\n${productController.products[widget.index].description}",
               style: const TextStyle(fontSize: 16, fontFamily: 'RobotoMono'),
               textAlign: TextAlign.justify,
-              maxLines: 1,
+              maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),
           ),
           separator(20),
-          const SizedBox(
-            height: 100,
-            child: Align(
+          Container(
+            padding: const EdgeInsets.only(bottom: 20),
+            height: 50,
+            child: const Align(
               alignment: Alignment.bottomCenter,
               child: Center(
                 child: Text(

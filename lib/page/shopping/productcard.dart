@@ -81,7 +81,7 @@ class _ProductCardState extends State<ProductCard> {
               ),
             ),
           ),
-          separator(13),
+          separator(10),
           Align(
             alignment: Alignment.centerLeft,
             child: Text(

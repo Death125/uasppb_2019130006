@@ -217,7 +217,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     context,
                     ' History Transaction',
                     'Do you want to go to the History Transaction?',
-                    Icons.history_edu);
+                    Icons.history);
                 if (action == DialogsAction.yes) {
                   setState(() {
                     setState(() => Navigator.pop(context));
@@ -249,10 +249,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       FirebaseAuth.instance.signOut();
                       HomePage.index = 0;
                     } else {
-                      // if (controller.products.length > 0) {
-                      //   Get.delete<CartController>();
-                      // }
-                      Navigator.pop(context);
+                      if (controller.products.length > 0) {
+                        Get.delete<CartController>();
+                      }
                       FirebaseAuth.instance.signOut();
                       Get.to(() => AuthPage());
 

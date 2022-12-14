@@ -116,7 +116,7 @@ class _AdminProductPageState extends State<AdminProductPage> {
       decoration: const InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.always,
           labelText: 'Stock',
-          hintText: 'Add stock more than 0'),
+          hintText: 'Add stock'),
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
       ],

@@ -25,7 +25,8 @@ class _ProductPageState extends State<ProductPage> {
   final user = FirebaseAuth.instance.currentUser!;
 
   int _index = 0;
-  final ProductController productController = Get.put(ProductController());
+  final ProductController productController =
+      Get.put(ProductController(), permanent: true);
 
   Widget separator(double height) {
     return SizedBox(
@@ -144,7 +145,7 @@ class _ProductPageState extends State<ProductPage> {
                     context,
                     ' History Transaction',
                     'Do you want to go to the History Transaction?',
-                    Icons.history_edu);
+                    Icons.history);
                 if (action == DialogsAction.yes) {
                   setState(() {
                     setState(() => Navigator.pop(context));
@@ -174,10 +175,11 @@ class _ProductPageState extends State<ProductPage> {
                       FirebaseAuth.instance.signOut();
                       HomePage.index = 0;
                     } else {
-                      Navigator.pop(context);
                       FirebaseAuth.instance.signOut();
 
-                      Get.to(() => AuthPage());
+                      Get.to(
+                        () => AuthPage(),
+                      );
 
                       HomePage.newScreen = false;
                       HomePage.index = 0;
