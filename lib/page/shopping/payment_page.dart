@@ -188,6 +188,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 "purchaseItem": productList,
                 "numberOfItemPurchased": productQuantity,
                 "paymentMethod": paymentMethod,
+                "totalPrice": controller.totalPay,
               }).catchError((onError) =>
                       print("Failed to add new sub-collection : $onError"));
 
@@ -211,6 +212,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 "soldItem": productList,
                 "numberOfItemSold": productQuantity,
                 "paymentMethod": paymentMethod,
+                "totalPrice": controller.totalPay,
               }).catchError((onError) =>
                       print("Failed to add new sub-collection : $onError"));
 

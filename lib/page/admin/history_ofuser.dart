@@ -139,13 +139,13 @@ class _HistoryOfUserState extends State<HistoryOfUser> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
-                                        child: Center(
-                                            child: Text(
+                                        child: Text(
                                           '${items[index]}',
                                           style: const TextStyle(fontSize: 20),
                                           softWrap: true,
                                           maxLines: 5,
-                                        )),
+                                          textAlign: TextAlign.justify,
+                                        ),
                                       ),
                                       const SizedBox(
                                         width: 50,
@@ -159,6 +159,21 @@ class _HistoryOfUserState extends State<HistoryOfUser> {
                                   ),
                                 );
                               },
+                            ),
+                            separator(20),
+                            const Text(
+                              "Total price : ",
+                              style: TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            separator(4),
+                            Text(
+                              "${documentSnapshot['totalPrice']} ",
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 20,
+                                  fontFamily: "RobotoMono"),
                             ),
                             separator(50),
                             Align(

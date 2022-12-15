@@ -138,7 +138,7 @@ class CartController extends GetxController {
         .toList()
         .reduce((value, element) => value + element);
 
-    return "Total : ${currencyFormatter.format(total)}";
+    return "${currencyFormatter.format(total)}";
   }
 
   void checkProduct() {
