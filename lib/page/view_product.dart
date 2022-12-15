@@ -3,6 +3,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// ignore: depend_on_referenced_packages
+import 'package:intl/intl.dart';
 import 'package:uasppb_2019130006/controller/cart_controller.dart';
 import 'package:uasppb_2019130006/controller/product_controller.dart';
 
@@ -20,6 +22,8 @@ class ViewProduct extends StatefulWidget {
 class _ViewProductState extends State<ViewProduct> {
   final cartController = Get.put(CartController());
   final ProductController productController = Get.find();
+
+  final currencyFormatter = NumberFormat.currency(locale: 'ID');
 
   Widget separator(double height) {
     return SizedBox(
@@ -59,12 +63,6 @@ class _ViewProductState extends State<ViewProduct> {
                     child: const CircularProgressIndicator(),
                   ),
                 ),
-                // SizedBox(
-                //   height: 300,
-                //   width: double.infinity,
-                //   child: Image.network(
-                //       productController.products[widget.index].imageUrl),
-                // ),
                 separator(15),
                 Text(
                   productController.products[widget.index].name,
@@ -118,7 +116,7 @@ class _ViewProductState extends State<ViewProduct> {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
-                        "Price : ${productController.products[widget.index].price}",
+                        "Price : ${currencyFormatter.format(productController.products[widget.index].price)}",
                         style: const TextStyle(
                             fontSize: 16,
                             fontFamily: "RobotoMono",

@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
+import 'package:intl/intl.dart';
 
 class AdminViewProduct extends StatelessWidget {
   final DocumentSnapshot documentSnapshot;
@@ -14,6 +16,8 @@ class AdminViewProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currencyFormatter = NumberFormat.currency(locale: 'ID');
+
     return Scaffold(
       appBar: AppBar(title: const Text("Produk")),
       body: Container(
@@ -36,8 +40,10 @@ class AdminViewProduct extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: SelectableText(
                     "ImageUrl : \n ${documentSnapshot['url']}",
-                    style:
-                        const TextStyle(fontSize: 14, fontFamily: "RobotoMono"),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                        fontFamily: "RobotoMono"),
                     textAlign: TextAlign.left,
                   ),
                 ),
@@ -79,7 +85,7 @@ class AdminViewProduct extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
-                        "Price : ${documentSnapshot['price']}",
+                        "Price : ${currencyFormatter.format(documentSnapshot['price'])}",
                         style: const TextStyle(
                             fontSize: 16,
                             fontFamily: "RobotoMono",
