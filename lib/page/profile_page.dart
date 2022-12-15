@@ -698,21 +698,21 @@ class _ProfilePageState extends State<ProfilePage> {
                                     child: Stack(
                                       children: [
                                         CachedNetworkImage(
-                                          imageUrl:
-                                              "${documentSnapshot['urlp']}",
-                                          imageBuilder:
-                                              (context, imageProvider) =>
-                                                  CircleAvatar(
-                                            radius: profileHeight / 2,
-                                            backgroundImage: imageProvider,
-                                          ),
-                                          placeholder: (context, url) =>
-                                              Container(
-                                            alignment: Alignment.center,
-                                            child:
-                                                const CircularProgressIndicator(),
-                                          ),
-                                        ),
+                                            imageUrl:
+                                                "${documentSnapshot['urlp']}",
+                                            imageBuilder:
+                                                (context, imageProvider) =>
+                                                    CircleAvatar(
+                                                      radius: profileHeight / 2,
+                                                      backgroundImage:
+                                                          imageProvider,
+                                                    ),
+                                            placeholder: (context, url) =>
+                                                CircleAvatar(
+                                                  radius: profileHeight / 2,
+                                                  child:
+                                                      const CircularProgressIndicator(),
+                                                )),
                                         Positioned(
                                           bottom: 0,
                                           right: 4,
