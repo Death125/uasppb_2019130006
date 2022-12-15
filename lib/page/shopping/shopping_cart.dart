@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uasppb_2019130006/controller/cart_controller.dart';
-import 'package:uasppb_2019130006/login_page/auth_page.dart';
+import 'package:uasppb_2019130006/main.dart';
 import 'package:uasppb_2019130006/model/product_model.dart';
 import 'package:uasppb_2019130006/page/about_page.dart';
 import 'package:uasppb_2019130006/page/shopping/cart_total.dart';
@@ -16,7 +16,6 @@ import 'package:uasppb_2019130006/page/user_home_page.dart';
 import 'package:uasppb_2019130006/widgets/custom_alert_dialog.dart';
 
 class ShoppingCart extends StatefulWidget {
-  static bool isProductExist = false;
   ShoppingCart({Key? key}) : super(key: key);
 
   @override
@@ -180,7 +179,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                         Get.delete<CartController>();
                       }
                       FirebaseAuth.instance.signOut();
-                      Get.to(() => AuthPage());
+                      Get.to(() => const MainPage());
 
                       HomePage.newScreen = false;
                       HomePage.index = 0;
@@ -281,8 +280,26 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                 'Payment Method',
                                 'Do you want to go to the payment page ?',
                                 Icons.payment);
-                            if (action == DialogsAction.yes) {
+                            if (action == DialogsAction.yes &&
+                                controller.products.length > 0) {
                               Get.to(() => const PaymentPage());
+                            } else if (action == DialogsAction.yes &&
+                                controller.products.length <= 0) {
+                              Get.snackbar(
+                                "title",
+                                "message",
+                                snackPosition: SnackPosition.BOTTOM,
+                                duration: const Duration(seconds: 1),
+                                titleText: const Text(
+                                  "Payment Page",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                messageText: const Text("Cart is empty",
+                                    style: TextStyle(fontSize: 14)),
+                                backgroundColor: Colors.blue.shade300,
+                              );
                             } else {}
                           },
                           child: const Text(

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uasppb_2019130006/controller/cart_controller.dart';
 import 'package:uasppb_2019130006/controller/product_controller.dart';
-import 'package:uasppb_2019130006/login_page/auth_page.dart';
+import 'package:uasppb_2019130006/main.dart';
 import 'package:uasppb_2019130006/page/about_page.dart';
 import 'package:uasppb_2019130006/page/shopping/product_history.dart';
 import 'package:uasppb_2019130006/page/shopping/productcard.dart';
@@ -25,8 +25,7 @@ class _ProductPageState extends State<ProductPage> {
   final user = FirebaseAuth.instance.currentUser!;
 
   int _index = 0;
-  final ProductController productController =
-      Get.put(ProductController(), permanent: true);
+  final ProductController productController = Get.put(ProductController());
 
   Widget separator(double height) {
     return SizedBox(
@@ -177,12 +176,12 @@ class _ProductPageState extends State<ProductPage> {
                     } else {
                       FirebaseAuth.instance.signOut();
 
-                      Get.to(
-                        () => AuthPage(),
-                      );
-
                       HomePage.newScreen = false;
                       HomePage.index = 0;
+
+                      Get.to(
+                        () => const MainPage(),
+                      );
                     }
                   });
                 } else {

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:uasppb_2019130006/controller/product_controller.dart';
 import 'package:uasppb_2019130006/page/shopping/shopping_cart.dart';
 import 'shopping/product_page.dart';
 import 'profile_page.dart';
@@ -17,6 +19,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int index = 0;
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+  }
 
   final screens = [
     const ProductPage(),

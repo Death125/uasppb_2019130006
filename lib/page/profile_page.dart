@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uasppb_2019130006/controller/cart_controller.dart';
 import 'package:uasppb_2019130006/login_page/auth_page.dart';
+import 'package:uasppb_2019130006/main.dart';
 import 'package:uasppb_2019130006/page/about_page.dart';
 import 'package:uasppb_2019130006/page/shopping/product_history.dart';
 import 'package:uasppb_2019130006/page/user_home_page.dart';
@@ -243,6 +244,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   setState(() {
                     if (HomePage.newScreen == false) {
                       if (controller.products.length > 0) {
+                        print("Profile a jumlah : $controller.products.length");
                         Get.delete<CartController>();
                       }
                       Navigator.pop(context);
@@ -253,7 +255,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Get.delete<CartController>();
                       }
                       FirebaseAuth.instance.signOut();
-                      Get.to(() => AuthPage());
+                      Get.to(() => const MainPage());
 
                       HomePage.newScreen = false;
                       HomePage.index = 0;
