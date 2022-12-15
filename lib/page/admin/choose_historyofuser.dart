@@ -74,7 +74,7 @@ class _ChooseHistoryOfUserState extends State<ChooseHistoryOfUser> {
                                     decorationStyle:
                                         TextDecorationStyle.double),
                               )),
-                          separator(5),
+                          separator(15),
                         ],
                       ),
                     );
